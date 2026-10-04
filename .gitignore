@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# VS Code
+.vscode/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.log
+
+# Original raw dataset
+data/Online Retail.xlsx
+*.zip
+# Generated datasets
+clean_online_retail.csv
+clean_online_retail_final.csv
+customer_online_retail.csv
+customer_online_retail_final.csv
