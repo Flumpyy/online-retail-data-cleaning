@@ -177,14 +177,33 @@ online-retail-data-cleaning/
 - Visual Studio Code
 
 ---
+## Dataset Setup
+
+This project uses the **Online Retail** dataset from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/352/online+retail).
+
+The original dataset is not included in this repository due to its file size.
+
+1. Download the `Online Retail.xlsx` dataset from the UCI Machine Learning Repository.
+2. Create a folder named `data` in the project directory.
+3. Place the downloaded file inside the `data` folder.
+
+The project structure should look like:
+
+```text
+online-retail-data-cleaning/
+├── data/
+│   └── Online Retail.xlsx
+├── data_inspection.py
+├── data_cleaning.py
+├── visualization.py
+├── requirements.txt
+└── README.md
 
 ## How to Run
-
 Install the required Python packages:
 
 ```bash
-pip install pandas matplotlib openpyxl
-```
+pip install -r requirements.txt
 
 Run the data inspection:
 
