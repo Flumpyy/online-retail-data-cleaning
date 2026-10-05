@@ -25,9 +25,7 @@ env/
 data/Online Retail.xlsx
 *.zip
 # Generated datasets
-clean_online_retail.csv
 clean_online_retail_final.csv
-customer_online_retail.csv
 customer_online_retail_final.csv
 cancelled_transactions.csv
 zero_price_transactions.csv

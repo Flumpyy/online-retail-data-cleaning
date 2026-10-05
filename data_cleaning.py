@@ -328,32 +328,7 @@ print(
     "筆"
 )
 
-# 儲存清理完成的資料
-clean_df.to_csv(
-    "clean_online_retail.csv",
-    index=False,
-    encoding="utf-8-sig"
-)
 
-customer_df.to_csv(
-    "customer_online_retail.csv",
-    index=False,
-    encoding="utf-8-sig"
-)
-
-cancelled_df.to_csv(
-    "cancelled_transactions.csv",
-    index=False,
-    encoding="utf-8-sig"
-)
-
-zero_price_df.to_csv(
-    "zero_price_transactions.csv",
-    index=False,
-    encoding="utf-8-sig"
-)
-
-print("\n資料儲存完成")
 
 # 建立每筆交易的總金額
 clean_df["TotalPrice"] = (
@@ -372,15 +347,6 @@ print(
 # ============================================================
 # EDA（探索性資料分析）
 # ============================================================
-
-# ------------------------------------------------------------
-# 1. 建立交易金額
-# ------------------------------------------------------------
-
-clean_df["TotalPrice"] = (
-    clean_df["Quantity"] * clean_df["UnitPrice"]
-)
-
 
 # ------------------------------------------------------------
 # 2. 處理交易日期
@@ -603,22 +569,21 @@ print(
 # 11. 不同時段的交易筆數
 # ------------------------------------------------------------
 
-hourly_transactions = (
+hourly_orders = (
     clean_df
-    .groupby("Hour")
-    .size()
+    .groupby("Hour")["InvoiceNo"]
+    .nunique()
     .sort_index()
 )
 
 print(
-    "\n========== Transactions by Hour"
-    "（各時段交易筆數） =========="
+    "\n========== Orders by Hour"
+    "（各時段訂單數） =========="
 )
 
 print(
-    hourly_transactions.to_string()
+    hourly_orders.to_string()
 )
-
 
 # ------------------------------------------------------------
 # 12. CustomerID 缺失比例
@@ -735,3 +700,6 @@ customer_df.to_csv(
 )
 
 print("\n========== EDA（探索性資料分析）完成 ==========")
+
+print("最早日期：", clean_df["InvoiceDate"].min())
+print("最晚日期：", clean_df["InvoiceDate"].max())

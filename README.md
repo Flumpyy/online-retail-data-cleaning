@@ -2,20 +2,33 @@
 
 ## Project Overview
 
-This project analyzes an online retail transaction dataset using Python.
+This project demonstrates an end-to-end data analysis workflow using the UCI Online Retail dataset, covering data inspection, cleaning, feature engineering, exploratory data analysis, and visualization.
 
-The main objectives are to:
+The analysis processes more than 500,000 transaction records and focuses on transforming raw transactional data into a clean and analysis-ready dataset.
 
-- Inspect and understand the raw dataset
-- Clean invalid and incomplete transaction records
-- Separate cancelled and zero-price transactions
-- Create useful variables for analysis
-- Perform exploratory data analysis (EDA)
-- Visualize sales trends, product performance, customer activity, and geographic distribution
+### Key Tasks
+
+- Inspected data quality, missing values, and invalid transaction records
+- Identified and separated cancelled and zero-price transactions
+- Preserved transactions with missing `CustomerID` for overall sales analysis
+- Created customer-level data for customer behavior analysis
+- Engineered analytical features including `TotalPrice` and time-based variables
+- Analyzed revenue trends, product performance, customer activity, and geographic distribution
+- Created visualizations to communicate key business insights
+
+### Key Results
+
+- **524,878** transaction records retained for sales analysis
+- **132,186** records with missing `CustomerID` preserved for aggregate analysis
+- Separate customer-level dataset created for analyses requiring valid customer identification
+- Revenue, product, geographic, and hourly purchasing patterns explored through EDA
 
 ---
 
 ## Dataset
+The dataset is the UCI Online Retail dataset, containing transactions from a UK-based online retailer between December 2010 and December 2011.
+
+It includes approximately 540,000 raw transaction records covering products, quantities, prices, customers, and countries.
 
 The dataset contains online retail transactions with the following main variables:
 
@@ -67,7 +80,7 @@ Monthly revenue generally increases toward the end of 2011, with particularly st
 
 November records the highest revenue in the dataset.
 
-The decline in December should be interpreted cautiously because the dataset may contain only partial December records.
+The decline in December should be interpreted cautiously because the dataset only contains transactions through December 9, 2011, making December an incomplete month.
 
 ---
 
@@ -127,7 +140,7 @@ This suggests that customer purchasing activity is strongest around midday.
 
 The exploratory analysis reveals several important patterns:
 
-- Revenue increases substantially toward the end of 2011.
+- Revenue increases substantially from September to November 2011.
 - November has the highest monthly revenue.
 - Product sales volume and product revenue rankings are not identical.
 - A small number of products account for particularly high sales volumes.
@@ -156,9 +169,7 @@ online-retail-data-cleaning/
 ├── data_cleaning.py
 ├── visualization.py
 │
-├── clean_online_retail.csv
 ├── clean_online_retail_final.csv
-├── customer_online_retail.csv
 ├── customer_online_retail_final.csv
 ├── cancelled_transactions.csv
 ├── zero_price_transactions.csv
@@ -198,12 +209,14 @@ online-retail-data-cleaning/
 ├── visualization.py
 ├── requirements.txt
 └── README.md
-
+```
 ## How to Run
+
 Install the required Python packages:
 
 ```bash
 pip install -r requirements.txt
+```
 
 Run the data inspection:
 
